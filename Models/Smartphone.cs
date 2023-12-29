@@ -1,14 +1,58 @@
+using System.Dynamic;
+
 namespace DesafioPOO.Models
 {
     public abstract class Smartphone
     {
-        public string Numero { get; set; }
-        // TODO: Implementar as propriedades faltantes de acordo com o diagrama
+        private string _numero;
+        private string _modelo;
+        private string _imei;
+        private int _memoria;
 
-        public Smartphone(string numero)
+
+        private string Numero
+        {
+            get => _numero;
+
+
+            set => _numero = !string.IsNullOrEmpty(value) ? value : throw new ArgumentException("O Número não pode ser vazia.");
+        }
+
+        private string Modelo
+        {
+            get => _modelo;
+
+
+            set => _modelo = !string.IsNullOrEmpty(value) ? value : throw new ArgumentException("O Modelo não pode ser vazia.");
+        }
+
+
+        private string Imei
+        {
+            get => _imei;
+
+
+            set => _imei = !string.IsNullOrEmpty(value) ? value : throw new ArgumentException("O Imei não pode ser vazia.");
+        }
+
+
+
+        private int Memoria
+        {
+            get;
+            set;
+        }
+
+
+
+        public Smartphone(string numero, string modelo, string imei, int memoria)
         {
             Numero = numero;
-            // TODO: Passar os parâmetros do construtor para as propriedades
+            Modelo = modelo;
+            Imei = imei;
+            Memoria = memoria;
+
+
         }
 
         public void Ligar()
